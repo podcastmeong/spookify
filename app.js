@@ -408,10 +408,11 @@ function buildStory(rng) {
   const sound = pick(rng, STORY.sounds);
   const twist = pick(rng, STORY.twists);
   const objectShort = object.replace(/^(a|an|the)\s+/i, '').split(' that ')[0].split(' of ')[0];
-  const soundShort = sound.replace(/^a\s+/i, '').split(' that ')[0];
+  const soundShort = sound.replace(/^(a|the)\s+/i, '').split(' that ')[0];
   const titleTpl = pick(rng, STORY.titleTemplates);
+  const placeTitle = place.replace(/^(the)\s+/i, '');
   const title = titleTpl
-    .replace('{place}', place.charAt(0).toUpperCase() + place.slice(1))
+    .replace('{place}', placeTitle.charAt(0).toUpperCase() + placeTitle.slice(1))
     .replace('{noun}', pick(rng, ['Haunting', 'Secret', 'Silence', 'Curse', 'Guest', 'Photograph']))
     .replace('{objectShort}', objectShort.charAt(0).toUpperCase() + objectShort.slice(1))
     .replace('{name}', name)
