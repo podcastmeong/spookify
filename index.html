@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spookify — Turn Any Photo into a Halloween Portrait</title>
+<meta name="description" content="Spookify turns any photo into a Halloween portrait with six spooky effects and writes an original horror story to go with it. 100% client-side — your photo never leaves your device. Built for Kiroween 2026.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">🎃</span>
+    <div>
+      <h1>Spookify</h1>
+      <p class="tagline">Turn any photo into a Halloween portrait — plus a horror story to go with it.</p>
+    </div>
+  </div>
+  <span class="contest-badge">Kiroween 2026 · Costume Contest</span>
+</header>
+
+<main class="layout">
+  <section class="panel upload-panel" aria-label="Upload a photo">
+    <h2>1 · Your photo</h2>
+    <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Upload a photo">
+      <p class="drop-icon" aria-hidden="true">📸</p>
+      <p><strong>Drop a photo here</strong> or <span class="linklike">browse your files</span></p>
+      <p class="hint">JPG, PNG, WebP, GIF — processed in your browser, never uploaded.</p>
+      <input type="file" id="file-input" accept="image/*" hidden>
+    </div>
+    <button id="sample-btn" class="btn btn-secondary" type="button">Use sample photo</button>
+    <p id="upload-error" class="error" role="alert" hidden></p>
+    <p id="photo-name" class="photo-name">Sample scene loaded</p>
+  </section>
+
+  <section class="panel stage-panel" aria-label="Halloween effects">
+    <h2>2 · Pick a Halloween effect</h2>
+    <canvas id="stage" width="960" height="720" aria-label="Halloween portrait preview"></canvas>
+    <div id="effect-list" class="effect-list" role="group" aria-label="Effects">
+      <button class="effect-btn" type="button" data-effect="blood-moon" aria-pressed="true">🌕 Blood Moon</button>
+      <button class="effect-btn" type="button" data-effect="fog" aria-pressed="false">🌫️ Fog of the Damned</button>
+      <button class="effect-btn" type="button" data-effect="pumpkin" aria-pressed="false">🎃 Pumpkin Glow</button>
+      <button class="effect-btn" type="button" data-effect="mansion" aria-pressed="false">🏚️ Haunted Mansion</button>
+      <button class="effect-btn" type="button" data-effect="vampire" aria-pressed="false">🦇 Vampire Night</button>
+      <button class="effect-btn" type="button" data-effect="ghost" aria-pressed="false">👻 Ghostly Apparition</button>
+    </div>
+    <p id="effect-blurb" class="effect-blurb"></p>
+    <label class="slider-row" for="intensity">Effect intensity
+      <input type="range" id="intensity" min="0" max="100" value="85">
+      <span id="intensity-value">85%</span>
+    </label>
+    <button id="download-btn" class="btn btn-primary" type="button">⬇ Download PNG</button>
+  </section>
+
+  <aside class="panel story-panel" aria-label="Horror story">
+    <h2>3 · Your horror story</h2>
+    <h3 id="story-title" class="story-title"></h3>
+    <div id="story-body" class="story-body"></div>
+    <div class="story-actions">
+      <button id="new-story-btn" class="btn btn-secondary" type="button">🔀 New story</button>
+      <button id="copy-btn" class="btn btn-primary" type="button">📋 Copy story</button>
+    </div>
+    <p id="copy-status" class="copy-status" role="status"></p>
+  </aside>
+</main>
+
+<section id="selftest-results" class="selftest" hidden aria-label="Self-test results"></section>
+
+<footer class="site-footer">
+  <p>Spookify is 100% client-side — your photo never leaves your device. Built with Kiro for Kiroween 2026 (Devpost). Free, no account, no tracking.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

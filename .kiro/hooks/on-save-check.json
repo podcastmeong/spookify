@@ -1,0 +1,1 @@
+{"description":"Spookify agent hooks (Kiro). Validate the hook schema in kiro-cli after sign-in; the repo must keep a .kiro/hooks file for the contest's /.kiro requirement.","hooks":[{"actions":[{"command":"node --check app.js","type":"runCommand"}],"name":"check-js-on-save","trigger":{"patterns":["app.js"],"type":"onFileSave"}}],"version":1}
